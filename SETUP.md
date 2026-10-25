@@ -57,7 +57,7 @@ When it finishes, the production address is:
 
 https://prince-pandey-portfolio.vercel.app
 
-The first deploy used that command. Later changes should go through GitHub. The steps are in `CICD.md`. A push to `main` builds and publishes the site automatically.
+To deploy again later, run the same command from this folder.
 
 ## 5. Add the domain on Vercel
 
