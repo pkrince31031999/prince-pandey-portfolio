@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --bg: #090a0d;
+  --text: #f3efe6;
+  --muted: #b7b1a6;
+  --accent: #a9b6ff;
+  --line: rgba(243, 239, 230, 0.1);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5.5rem;
+    font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  }
+
+  body {
+    min-height: 100%;
+    background:
+      radial-gradient(ellipse at top, rgba(169, 182, 255, 0.1), transparent 46%),
+      var(--bg);
+    color: var(--text);
+    font-feature-settings: "cv11", "ss01";
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: rgba(169, 182, 255, 0.28);
+    color: #fff;
+  }
+
+  :focus-visible {
+    outline: 2px solid #c5ceff;
+    outline-offset: 3px;
+  }
+
+  button,
+  summary,
+  [type="submit"] {
+    cursor: pointer;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(243, 239, 230, 0.18);
+  border: 2px solid #090a0d;
+  border-radius: 999px;
+}
+
+@keyframes hero-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.hero-panel {
+  animation: hero-in 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.gradient-text {
+  background-image: linear-gradient(100deg, #c5d0ff 0%, #e7ebff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.words-static {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .hero-panel,
+  .reveal-item {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .words-static {
+    display: block;
+  }
+
+  .words-live {
+    display: none !important;
+  }
+}
